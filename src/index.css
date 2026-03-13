@@ -82,14 +82,46 @@ body {
   display: grid;
   gap: 16px;
   justify-items: center;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(255, 84, 84, 0.25);
+  border-radius: 26px;
+  background: linear-gradient(165deg, rgba(25, 3, 6, 0.78), rgba(10, 1, 1, 0.74));
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.45), inset 0 0 50px rgba(145, 18, 26, 0.2);
+  backdrop-filter: blur(3px);
+}
+
+.logo-frame {
+  width: clamp(130px, 30vw, 230px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 45% 35%, rgba(255, 71, 71, 0.28), rgba(13, 3, 3, 0.82) 65%);
+  border: 1px solid rgba(255, 92, 92, 0.32);
+  box-shadow: 0 0 0 1px rgba(255, 76, 76, 0.18), 0 0 25px rgba(189, 14, 31, 0.3);
 }
 
 .site-logo {
-  width: clamp(120px, 28vw, 220px);
+  width: 86%;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 18px rgba(255, 56, 56, 0.42));
   animation: logo-float 5.2s ease-in-out infinite;
+}
+
+.logo-fallback {
+  width: 86%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #ffb8b8;
+  font-size: clamp(2.2rem, 8vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: radial-gradient(circle at 50% 35%, rgba(255, 92, 92, 0.35), rgba(8, 2, 2, 0.92) 70%);
+  border: 2px solid rgba(255, 88, 88, 0.45);
+  text-shadow: 0 0 16px rgba(255, 64, 64, 0.7);
 }
 
 @keyframes logo-float {
@@ -108,11 +140,18 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-shadow: 0 0 20px rgba(255, 53, 53, 0.5), 0 0 42px rgba(130, 8, 20, 0.32);
-  background: linear-gradient(180deg, #ffafaf, #ff4b4b 58%, #950a18);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #ff7a7a;
   user-select: none;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .title {
+    background: linear-gradient(180deg, #ffafaf, #ff4b4b 58%, #950a18);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 }
 
 .search-wrap {
@@ -120,8 +159,8 @@ body {
   max-width: 640px;
   border-radius: 999px;
   padding: 9px;
-  background: linear-gradient(120deg, rgba(255, 56, 56, 0.28), rgba(143, 10, 23, 0.2));
-  box-shadow: 0 0 0 1px rgba(255, 98, 98, 0.33), 0 22px 52px rgba(0, 0, 0, 0.45);
+  background: linear-gradient(120deg, rgba(255, 56, 56, 0.34), rgba(143, 10, 23, 0.32));
+  box-shadow: 0 0 0 1px rgba(255, 126, 126, 0.5), 0 22px 52px rgba(0, 0, 0, 0.45);
   transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
 }
 

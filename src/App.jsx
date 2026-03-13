@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const bubbles = Array.from({ length: 32 }, (_, i) => {
   const size = Math.round(Math.random() * 44 + 10);
   return {
@@ -11,6 +13,8 @@ const bubbles = Array.from({ length: 32 }, (_, i) => {
 });
 
 export default function App() {
+  const [logoMissing, setLogoMissing] = useState(false);
+
   return (
     <>
       <div className="bubbles" aria-hidden="true">
@@ -30,7 +34,18 @@ export default function App() {
       </div>
 
       <main className="shell">
-        <img className="site-logo" src="/logo.png" alt="Ragnar logo" />
+        <div className="logo-frame" aria-hidden="true">
+          {!logoMissing ? (
+            <img
+              className="site-logo"
+              src="/logo.png"
+              alt="Ragnar logo"
+              onError={() => setLogoMissing(true)}
+            />
+          ) : (
+            <div className="logo-fallback">R</div>
+          )}
+        </div>
         <h1 className="title">Ragnar</h1>
         <div className="search-wrap">
           <input
