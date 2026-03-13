@@ -76,6 +76,14 @@
       </main>
     </div>
     <div id="root"></div>
+    <script>
+      window.addEventListener("ragnar:app-ready", () => {
+        const fallback = document.getElementById("fallback");
+        if (fallback) {
+          fallback.style.display = "none";
+        }
+      });
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

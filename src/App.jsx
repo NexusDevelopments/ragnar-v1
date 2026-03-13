@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const bubbles = Array.from({ length: 32 }, (_, i) => {
   const size = Math.round(Math.random() * 44 + 10);
@@ -14,6 +14,10 @@ const bubbles = Array.from({ length: 32 }, (_, i) => {
 
 export default function App() {
   const [logoMissing, setLogoMissing] = useState(false);
+
+  useEffect(() => {
+    window.dispatchEvent(new Event("ragnar:app-ready"));
+  }, []);
 
   return (
     <>
