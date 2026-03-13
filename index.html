@@ -5,8 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <title>Ragnar</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      #fallback {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        color: #ffd5d5;
+        font-family: "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at 14% 20%, rgba(255, 65, 65, 0.18), transparent 45%),
+          radial-gradient(circle at 80% 74%, rgba(199, 16, 33, 0.22), transparent 48%),
+          linear-gradient(140deg, #060606, #111111 58%, #000000);
+      }
+
+      .fallback-shell {
+        width: min(760px, 92vw);
+        display: grid;
+        gap: 14px;
+        justify-items: center;
+        padding: clamp(18px, 3vw, 28px);
+        border: 1px solid rgba(255, 84, 84, 0.35);
+        border-radius: 24px;
+        background: linear-gradient(165deg, rgba(25, 3, 6, 0.82), rgba(10, 1, 1, 0.78));
+      }
+
+      .fallback-logo {
+        width: clamp(120px, 28vw, 210px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        object-fit: contain;
+        border: 1px solid rgba(255, 92, 92, 0.36);
+        box-shadow: 0 0 20px rgba(189, 14, 31, 0.34);
+        background: rgba(16, 4, 4, 0.8);
+      }
+
+      .fallback-title {
+        margin: 0;
+        font-size: clamp(2rem, 6vw, 3.8rem);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #ff7a7a;
+        text-shadow: 0 0 20px rgba(255, 53, 53, 0.5);
+      }
+
+      .fallback-search {
+        width: 100%;
+        border: 1px solid rgba(255, 126, 126, 0.52);
+        border-radius: 999px;
+        padding: 16px 20px;
+        background: rgba(255, 82, 82, 0.12);
+        color: #fff2f2;
+      }
+
+      .fallback-search::placeholder {
+        color: rgba(255, 213, 213, 0.72);
+      }
+    </style>
   </head>
   <body>
+    <div id="fallback">
+      <main class="fallback-shell">
+        <img class="fallback-logo" src="/logo.png" alt="Ragnar logo" />
+        <h1 class="fallback-title">Ragnar</h1>
+        <input class="fallback-search" type="search" placeholder="Search Ragnar..." aria-label="Search Ragnar" />
+      </main>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
